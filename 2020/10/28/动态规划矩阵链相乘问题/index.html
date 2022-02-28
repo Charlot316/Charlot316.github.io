@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          动态规划矩阵链相乘问题 - 椎名的博客 | Charlot&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://h2pl.github.io/2020/10/28/动态规划矩阵链相乘问题/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.min.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Charlot&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://h2pl.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://pic.mcatk.com/charlot-pictures/matrixline-title.png')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                          <a class="tag" href="/tags/#算法" title="算法">算法</a>
+                        
+                    </div>
+                    <h1>动态规划矩阵链相乘问题</h1>
+                    <h2 class="subheading">一个题解</h2>
+                    <span class="meta">
+                        Posted by Charlot on
+                        2020-10-28
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><h2 id="矩阵连乘的开销"><a href="#矩阵连乘的开销" class="headerlink" title="矩阵连乘的开销"></a>矩阵连乘的开销</h2><p>给出一个有n个矩阵(任何相邻的两个矩阵均相容)的矩阵序列$(&lt; A_1,A_2,…,A_n &gt;)$求它们的乘积$(A_1A_2…A_n)$。</p>
+<p>一般的做法是按照从左到右的顺序一个一个求矩阵的积，但是矩阵乘法是满足结合率的，我们可以通过给序列加上括号规定矩阵连乘的求解顺序。<br>矩阵连乘全括号：仅有一个矩阵，或者两个“矩阵连乘全括号”的乘积且外层包括一个括号，例如：$(A_1((A_2A_3)A_4))$。</p>
+<p>一对规模分别为$p×q$，$q×r$的矩阵相乘的乘法开销为$pqr$。对于矩阵连乘问题，采用不同的加括号方式，可能导致不同的甚至差异巨大的乘法开销。</p>
+<blockquote>
+<p>给定三个矩阵$A_1A_2A_3$，他们的规模分别是$10×100$，$100×5$，$5×50$。<br>按照$((A_1A_2)A_3)$的顺序运算的乘法开销是$10×100×5 + 10×50×5 = 7500$。<br>但按照$(A_1(A_2A_3))$的顺序运算的乘法开销是$100×5×50 + 10×100×50 = 75000$。<br>后者是前者的$10$倍。</p>
+</blockquote>
+<p>因此为了使矩阵乘法运算速度更快，可以预先计算出最好的给矩阵链加括号的方式以减小总乘法开销。</p>
+<h2 id="加括号的方式总数"><a href="#加括号的方式总数" class="headerlink" title="加括号的方式总数"></a>加括号的方式总数</h2><p>令$P(n)$表示$n$个矩阵连乘时所有可能的全括号的个数。<br>如果$n=1$，只有一种方法加括号<br>如果$n&gt;=2$，则在这些矩阵里面可以找到一个分割位置，$A<em>k$与$A</em>{k+1}$中间，将所有的分割方式累加。</p>
+<script type="math/tex; mode=display">P(n)= \begin{cases} 1, & \text {if $n$ =1 } \\\sum_{k=1}^{n-1}  \ P(k)P(n-k)  , & \text{if $n$ ≥ odd} \end{cases}</script><p>这个递归结果将是 $\Omega(2^n)$ （这个计算也可以从另一个角度考虑：$n$个位置可以选择插入或者不插入括号，那么总结果就是$2^n$的）的。如果采用暴力枚举来计算最优括号分割方式的话将消耗大量的时间</p>
+<h1 id="用动态规划法解决矩阵链相乘问题"><a href="#用动态规划法解决矩阵链相乘问题" class="headerlink" title="用动态规划法解决矩阵链相乘问题"></a>用动态规划法解决矩阵链相乘问题</h1><h2 id="优化子结构"><a href="#优化子结构" class="headerlink" title="优化子结构"></a>优化子结构</h2><p>在计算$A<em>iA</em>{i+1}…A<em>kA</em>{k+1}…A<em>j$的最优括号划分方案的时候，我们先找到一个最佳分割方案把这个矩阵列以$A_kA</em>{k+1}$为边界划分成两块，看成计算$A<em>iA</em>{i+1}…A<em>k$和$A</em>{k+1}…A_j$。之后再分别在这两块矩阵里寻找最佳边界继续划分，不断形成更小的子问题。<br>下面证明每一个子问题的最优括号划分方案合并起来就是整个问题的最优括号划分方案。</p>
+<blockquote>
+<p><strong>证明：</strong> 对于矩阵链$A<em>iA</em>{i+1}…A<em>kA</em>{k+1}…A<em>j$，寻找到一个最佳分割将其划分成$(A_iA</em>{i+1}…A<em>k) (A</em>{k+1}…A<em>j)$，记为$M·N$（M，N，P均代表的是乘法计算次数）。<br>如果对于$A_iA</em>{i+1}…A_k$，能找到一个更佳的括号划分方案的话，得到的结果应该是$P$，且$P&lt; M$。这样原矩阵链的最佳分割方案就应该是$P·N$而不是$M·N$了。<br>所以每一个子矩阵链的最佳划分方案合并在一起就是整个矩阵链的最佳划分方案。</p>
+</blockquote>
+<p>基于最佳子结构，我们可以从子问题的最优解构造原问题的最优解。</p>
+<h2 id="递归求解方案"><a href="#递归求解方案" class="headerlink" title="递归求解方案"></a>递归求解方案</h2><p>现在要计算矩阵链$A<em>iA</em>{i+1}…A<em>kA</em>{k+1}…A_j$的最优括号划分方案，最优括号划分即使乘法次数最少的方案，那么我们可以用一个二维数组$m[i,j]$来存储从$i$到$j$的这$j-i+1$个矩阵消耗的最少乘法次数，比如$m[1,n]$存放的就是$A_1$连乘到$A_n$所消耗的最少乘法次数，下面来看看如何计算$m[i,j]$。<br>在优化子结构里面我们提到了，一个问题的最优括号划分方案等于两个子问题括号划分问题的合并。同样的，消耗的乘法次数也是两个子问题的合并。不过这里要注意的是，分别计算完两个子矩阵链之后还需要把前后两个乘在一起。下面我们规定$p$是读入的每个矩阵的行列数，下标从$0$开始。$n$个矩阵只会读入$n+1$个数据，每相邻两个数代表一个矩阵的行列。</p>
+<blockquote>
+<p>比如要求3个矩阵的连乘，读入4个数据，$p<em>0=10，p_1=20，p_2=30，p_4=40$。那么第一个矩阵是10×20的，第二个矩阵是20×30的，第三个矩阵是30×40的。我们可以看到矩阵$A_i$的行数=$p</em>{i-1}$,列数=$p_i$，这个结论后面就会用到。</p>
+</blockquote>
+<p>这里假设我们已经找到了最佳分割点$k$位于$A<em>k$和$A</em>{k+1}$之间，则$m[i,j]$的计算公式是：</p>
+<script type="math/tex; mode=display">m[i,j]=m[i,k]+m[k+1,j]+p_{i-1}p_kp_j</script><p>这里$m[i,j]$是要求的最后的总最少的乘法次数，$A<em>k$和$A</em>{k+1}$中间是最佳的分割点，$m[i,k]$是分割点前面的矩阵连乘的最少次数，$m[k+1,j]$是分割点后面的矩阵连乘的最少次数，$p_{i-1}p_kp_j$ 是将前后两个矩阵链的结果合成最终矩阵时消耗的乘法次数。</p>
+<blockquote>
+<p>为什么是$p<em>{i-1}p_kp_j$ ？<br>两个矩阵相乘的时候得到的结果矩阵取得是第一个矩阵的行和第二个矩阵的列。<br>那么前i到k个矩阵相乘的结果取得就是第$i$个矩阵的行和第$k$个矩阵的列，应用上面的结论的话就是$p</em>{i-1}$和$p<em>k$。同理第$k+1$到$j$个矩阵相乘的结果取得就是第$k+1$个矩阵的行$p_k$和第$j$个矩阵的列$p_j$，<br>一对规模分别为$p×q$，$q×r$的矩阵相乘的乘法开销为$pqr$，因此这两个矩阵（$p</em>{i-1}$×$p<em>k$，$p_k$×$p_j$）相乘的乘法开销就是$p</em>{i-1}p_kp_j$ 。</p>
+</blockquote>
+<p>现在我们已经得到了每一个$m[i,j]$的计算公式，但这是基于最佳分割点$k$已经找到了的情况。实际上$k$是我们需要寻找的东西，而这个分割点一定在$i$和$j$中间，因此$m[i,j]$是对$k$取$i$到$j$中的任意值得到的结果中取最小，它的最终计算公式应该为：</p>
+<script type="math/tex; mode=display">m[i,j]= \begin{cases} 0, & \text {if $i$ =$j$ } \\\min_{ i≤k＜j  }  \ \lbrace m[i,k]+m[k+1,j]+p_{i-1}p_kp_j\rbrace , & \text{if $i$<$j$} \end{cases}</script><p>对此我们可以写出用递归求解的c代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INFINITY 2147483647</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">RECURSIVE_MATRIX_CHAIN</span><span class="params">(<span class="keyword">int</span> p[],<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> k;</span><br><span class="line">	<span class="keyword">if</span>(i==j)</span><br><span class="line">		<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	m[i][j]=INFINITY;</span><br><span class="line">	<span class="keyword">for</span>(k=i;k&lt;j;j++)</span><br><span class="line">	&#123;</span><br><span class="line">		q=RECURSIVE_MATRIX_CHAIN(p,i,k)+RECURSIVE_MATRIX_CHAIN(p,k+<span class="number">1</span>,j)+p[i<span class="number">-1</span>]*p[k]*p[j];</span><br><span class="line">		<span class="keyword">if</span> (q&lt;m[i][j]) m[i][j]=q;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> m[i][j];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>时间复杂度分析：<br>$T(1)≥1,$<br>$T(n)≥1+\sum<em>{k=1}^{n-1}  \ (T(k)+T(n-k)+1)=2\sum</em>{i=1}^{n-1}  \ T(i)+n≥2^{n-1}$<br>时间复杂度并没有好于暴力枚举法，这是因为递归的过程中重叠的子问题被反复计算浪费了大量时间。</p>
+<h2 id="重叠子问题-amp-构造最优解"><a href="#重叠子问题-amp-构造最优解" class="headerlink" title="重叠子问题&amp;构造最优解"></a>重叠子问题&amp;构造最优解</h2><p>基于上面的思路我们发现可以将已经计算出来的$m[i,j]$结果直接填入表中，减少冗余的递归计算。同时我们额外定义一个二维数组$s$用以记录每次分割的位置。具体的实现原因在代码中备注。</p>
+<blockquote>
+<p>比如$5$个矩阵连乘，$s[1,5]$存的就是这一个序列的第一个分割点，假设是$3$，那么接下来的分割点就要在$s[1,3]$和$s[4,5]$里找，一直找到$s$的两个下标相等为止。</p>
+</blockquote>
+<p>据此我们可以写出C代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INFINITY 2147483647</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MATRIX_CHAIN_ORDER</span><span class="params">(<span class="keyword">int</span> p[],<span class="keyword">int</span> length)</span><span class="comment">//用于计算m和s的函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	n=length<span class="number">-1</span>; </span><br><span class="line">	<span class="keyword">int</span> i,j,k,q,l;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++) </span><br><span class="line">	&#123;</span><br><span class="line">		m[i][i]=<span class="number">0</span>;<span class="comment">//只有一个矩阵的时候乘法代价为0</span></span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">for</span>(l=<span class="number">2</span>;l&lt;=n;l++)<span class="comment">//求解的顺序是自底向上的，先从规模最小的2个矩阵链求起一直求到矩阵链长度为n为止</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n-l+<span class="number">1</span>;i++)<span class="comment">//i用于决定一个矩阵链的起点，这个起点的范围就在1~n-l+1（总长度-当前长度+当前长度中多减的代表最靠后的起点的1）中间</span></span><br><span class="line">		&#123;</span><br><span class="line">			j=i+l<span class="number">-1</span>;<span class="comment">//j决定一个矩阵链的终点，终点就在i+j-1（起点+长度-长度中起点的重复计数）</span></span><br><span class="line">			m[i][j]=INFINITY;</span><br><span class="line">			<span class="keyword">for</span>(k=i;k&lt;j;k++)<span class="comment">//在i和j中寻找k，之后就和上面的思路是一样的了</span></span><br><span class="line">			&#123;</span><br><span class="line">				q=m[i][k]+m[k+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[k]*p[j];</span><br><span class="line">				<span class="keyword">if</span>(q&lt;m[i][j])</span><br><span class="line">				&#123;</span><br><span class="line">					m[i][j]=q;</span><br><span class="line">					s[i][j]=k;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PRINT_OPTIML_PARENS</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span><span class="comment">//用于打印加括号方式的函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(i==j)	<span class="built_in">printf</span>(<span class="string">&quot;A%d&quot;</span>,i);<span class="comment">//当序列里只有一项的时候直接打出</span></span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;(&quot;</span>);<span class="comment">//打出左括号</span></span><br><span class="line">		PRINT_OPTIML_PARENS(i,s[i][j]);<span class="comment">//打出分割点前的元素</span></span><br><span class="line">		PRINT_OPTIML_PARENS(s[i][j]+<span class="number">1</span>,j);<span class="comment">//打出分割点后的元素</span></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;)&quot;</span>);<span class="comment">//打出右括号</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="一道题目"><a href="#一道题目" class="headerlink" title="一道题目"></a>一道题目</h1><h2 id="题面"><a href="#题面" class="headerlink" title="题面"></a>题面</h2><p><a target="_blank" rel="noopener" href="https://accoding.cn/contest-ng/index.html#/560/problems">题目链接</a><br>用加括号的方式给出最优的矩阵相乘方案<br><strong>输入</strong><br>多组数据输入<br>第一行一个整数 n，表示矩阵链的长度（1&lt;=n&lt;=300）<br>接下来一行n+1个数表示这些矩阵的行数和列数<br>别问我为什么只有n+1个数，每相邻的两个数表示一个矩阵的大小<br><strong>输出</strong><br>对于每组数据，输出两行，第一行为计算次数，第二行为计算方案，用加括号的方式给出最优的矩阵相乘方案<br>如果不幸最优方案不唯一，选择优先计算左边的矩阵<br><strong>输入样例</strong></p>
+<blockquote>
+<p>3<br>10 30 5 60<br>3<br>10 20 5 4</p>
+</blockquote>
+<p><strong>输出样例</strong></p>
+<blockquote>
+<p>4500<br>((A1A2)A3)<br>1200<br>((A1A2)A3)</p>
+</blockquote>
+<p><strong>Hint</strong><br>在第二组样例中，选择((A1A2)A3)时，结果为10×20×5+10×5×4=1200<br>选择A1(A2A3)时，结果为20×5×4 + 10×20×4 = 1200<br>这时选择第一种，优先计算左边的！</p>
+<h2 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h2><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="keyword">int</span> p[<span class="number">305</span>];</span><br><span class="line"><span class="keyword">int</span> m[<span class="number">305</span>][<span class="number">305</span>];</span><br><span class="line"><span class="keyword">int</span> s[<span class="number">305</span>][<span class="number">305</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MATRIX_CHAIN_ORDER</span><span class="params">(<span class="keyword">int</span> p[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line">	n=N; </span><br><span class="line">	<span class="keyword">int</span> i,j,k,q,l;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">1</span>;i&lt;=n;i++) </span><br><span class="line">	&#123;</span><br><span class="line">		m[i][i]=<span class="number">0</span>;</span><br><span class="line">	&#125; </span><br><span class="line">	<span class="keyword">for</span>(l=<span class="number">2</span>;l&lt;=n;l++)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(i=n-l+<span class="number">1</span>;i&gt;=<span class="number">1</span>;i--)<span class="comment">//这里唯一不同的是，因为要求先算左边的，所以改变了i和j的选取顺序</span></span><br><span class="line">		&#123;</span><br><span class="line">			j=i+l<span class="number">-1</span>;</span><br><span class="line">			m[i][j]=<span class="number">2147483647</span>;</span><br><span class="line">			<span class="keyword">for</span>(k=j<span class="number">-1</span>;k&gt;=i;k--)</span><br><span class="line">			&#123;</span><br><span class="line">				q=m[i][k]+m[k+<span class="number">1</span>][j]+p[i<span class="number">-1</span>]*p[k]*p[j];</span><br><span class="line">				<span class="keyword">if</span>(q&lt;m[i][j])</span><br><span class="line">				&#123;</span><br><span class="line">					m[i][j]=q;</span><br><span class="line">					s[i][j]=k;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PRINT_OPTIML_PARENS</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">int</span> j)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(i==j)	<span class="built_in">printf</span>(<span class="string">&quot;A%d&quot;</span>,i);</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;(&quot;</span>);</span><br><span class="line">		PRINT_OPTIML_PARENS(i,s[i][j]);</span><br><span class="line">		PRINT_OPTIML_PARENS(s[i][j]+<span class="number">1</span>,j);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;)&quot;</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;N)!=EOF)</span><br><span class="line">	&#123;</span><br><span class="line">    	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;N+<span class="number">1</span>;i++) </span><br><span class="line">		&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;p[i]);</span><br><span class="line">		&#125; </span><br><span class="line">		MATRIX_CHAIN_ORDER(p);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>,m[<span class="number">1</span>][N]);</span><br><span class="line">		PRINT_OPTIML_PARENS(<span class="number">1</span>,N);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;\n&quot;</span>);</span><br><span class="line">		<span class="built_in">memset</span>(m,<span class="number">0</span>,<span class="keyword">sizeof</span>(m)); </span><br><span class="line">		<span class="built_in">memset</span>(s,<span class="number">0</span>,<span class="keyword">sizeof</span>(s));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2020/11/07/dosbox相关操作/" data-toggle="tooltip" data-placement="top" title="dosbox相关操作">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2020/10/25/求逆序对个数/" data-toggle="tooltip" data-placement="top" title="求逆序对个数">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                          <a class="tag" href="/tags/#算法" title="算法">算法</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://atksoto.com/" target="_blank">Soto-Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Charlot316">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Charlot&#39;s Blog 2022 
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a target="_blank" rel="noopener" href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://h2pl.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://h2pl.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>

@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          为何读名著？--《红楼梦》导论 - 椎名的博客 | Charlot&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://h2pl.github.io/2021/11/30/《红楼梦》导论/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.min.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Charlot&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://h2pl.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                          <a class="tag" href="/tags/#红楼梦" title="红楼梦">红楼梦</a>
+                        
+                    </div>
+                    <h1>为何读名著？--《红楼梦》导论</h1>
+                    <h2 class="subheading">台大欧丽娟老师《红楼梦》讲座笔记</h2>
+                    <span class="meta">
+                        Posted by Charlot on
+                        2021-11-30
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="开宗明义"><a href="#开宗明义" class="headerlink" title="开宗明义"></a>开宗明义</h1><section style="align-items: left;" class="">
+    <section style="box-sizing:border-box;width:25px;display:inline-block;">
+        <img class="assistant" style="box-sizing:border-box;vertical-align:inherit;width:100%;display:block;" src="https://bdn.135editor.com/files/images/editor_styles/b018c623815ca1802de3a386f3d25065.jpg" data-ratio="0.72" data-w="40" data-width="100%" />
+    </section>
+    <section class="135brush" data-brushtype="text" style="margin-top:6px;margin-left:15px;text-align: left;font-size:18px;color:#333;letter-spacing:1.5px;">
+        <strong>一切诸经，皆不过是敲门砖，是要敲开门，唤出其中的人来，此人即是你自己。</strong>
+    </section>
+    <section class="135brush" data-brushtype="text" style="margin-top:5px;text-align: right;font-size:16px;color:#333;letter-spacing:1.5px;">
+    ——山本玄绛禅师
+    </section>
+</section>
+
+<p>读者的角色与经典一样重要。什么样的读者，就会读出什么样的红楼梦。你是什么样的人，你就会去解释林黛玉去解释薛宝钗。这些解释都是在自己的人格特质所形成的有色眼镜之下所看到的样子。经典的意义，某个意义上来讲是拿我们自己和经典做一个激荡，召唤出来真实内在的自我。</p>
+<p>没有努力研究过就不要妄下断言。我们对于我们所批评的对象是否太过轻率、太过不公平？我们都不了解他，凭什么我们就可以对他下判断？</p>
+<h1 id="作为读者的自我锻炼"><a href="#作为读者的自我锻炼" class="headerlink" title="作为读者的自我锻炼"></a>作为读者的自我锻炼</h1><section style="align-items: left;" class="">
+    <section style="box-sizing:border-box;width:25px;display:inline-block;">
+        <img class="assistant" style="box-sizing:border-box;vertical-align:inherit;width:100%;display:block;" src="https://bdn.135editor.com/files/images/editor_styles/b018c623815ca1802de3a386f3d25065.jpg" data-ratio="0.72" data-w="40" data-width="100%" />
+    </section>
+    <section class="135brush" data-brushtype="text" style="margin-top:6px;margin-left:15px;text-align: left;font-size:18px;color:#333;letter-spacing:1.5px;">
+        <strong>要说某些情节在本质上要比别的情节重要得多，这话听上去几乎显得幼稚。<br/><br/>一部小说是一个有生命的东西，像任何一个别的有机体一样，它是一个整体，并且连续不断，而且我认为，它越富于生命的话，你就越会发现，在它的每一个部分里都包含着每一个别的部分里的东西。</strong>
+    </section>
+    <section class="135brush" data-brushtype="text" style="margin-top:5px;text-align: right;font-size:16px;color:#333;letter-spacing:1.5px;">
+    ——Henry James《小说的艺术》
+    </section>
+</section>
+
+<p>把读者个人的成见尽量地摒除，尽量地抽离，为的就是要清楚完整深刻地理解对象。我们读书不就是这个目的吗？我们读书不就是为了看到我们原来不知道的东西吗？这才能够构成我们个人的成长。我们读书竟然只是为了印证我们在读这本书时就已经知道的东西，这样的读书意义到底在哪里？</p>
+<p> 所以读书事实上是要打破旧的自我，然后去开启出我们<strong>新的自我的可能性</strong>。</p>
+<section style="align-items: left;" class="">
+    <section style="box-sizing:border-box;width:25px;display:inline-block;">
+        <img class="assistant" style="box-sizing:border-box;vertical-align:inherit;width:100%;display:block;" src="https://bdn.135editor.com/files/images/editor_styles/b018c623815ca1802de3a386f3d25065.jpg" data-ratio="0.72" data-w="40" data-width="100%" />
+    </section>
+    <section class="135brush" data-brushtype="text" style="margin-top:6px;margin-left:15px;text-align: left;font-size:18px;color:#333;letter-spacing:1.5px;">
+        <strong>在论断中必须避免各种极端。每一个极端是真实的，但仅仅是从事物中抽出的一个方面而已。只有包括事物各个方面的思想才是完整的真理。这种思想能够掌握住自己，不让自己专门沉溺于某一个方面，但是能从它们具体的统一中看到它们全体。</strong>
+    </section>
+    <section class="135brush" data-brushtype="text" style="margin-top:5px;text-align: right;font-size:16px;color:#333;letter-spacing:1.5px;">
+    ——别林斯基
+    </section>
+</section>
+
+<p>人文在任何可能性里面都可能是对的，但是问题是你对不代表你就是最全面的。</p>
+<section style="align-items: left;" class="">
+    <section style="box-sizing:border-box;width:25px;display:inline-block;">
+        <img class="assistant" style="box-sizing:border-box;vertical-align:inherit;width:100%;display:block;" src="https://bdn.135editor.com/files/images/editor_styles/b018c623815ca1802de3a386f3d25065.jpg" data-ratio="0.72" data-w="40" data-width="100%" />
+    </section>
+    <section class="135brush" data-brushtype="text" style="margin-top:6px;margin-left:15px;text-align: left;font-size:18px;color:#333;letter-spacing:1.5px;">
+        <strong>我小说中的人物是我自己没有意识到的诸种可能性。正因为如此，我对他们都一样地喜爱，他们也都同样的让我感到惊讶。<br/><br/>小说不是人类的自白，也不是个人的自白，是对人类生活——生活在已经成为网络的世界——里的一个总体考察。<br/><br/>小说家不是任何观念的代言人，严格来说，他甚至不应该为自己的信念说话。<br/><br/>小说人物不是对活生生的生命体进行模拟，小说人物是一个想象的生命，一个实验性的自我。<br/><br/>音乐的复调，是同时发展两个声部（两个旋律的线），尽管它们完美的连接着，但却又保有它们相对的独立……所有主张复调曲式的伟大音乐家，都有一个基本原则，那就是声部之间的平等。</strong>
+    </section>
+    <section class="135brush" data-brushtype="text" style="margin-top:5px;text-align: right;font-size:16px;color:#333;letter-spacing:1.5px;">
+    ——米兰•昆德拉
+    </section>
+</section>
+
+<h2 id="请斟酌"><a href="#请斟酌" class="headerlink" title="请斟酌"></a>请斟酌</h2><ol>
+<li>一个作者真的是用他自己的价值观来主导写作的吗？</li>
+<li>假设他是用他的自觉的一个个人的价值观来主导创作的时候难道没有其他非自觉的潜意识会渗透到他的笔端从而影响到他的写作吗？有没有可能？当然有，我们每个人都有潜意识，如果作者有非意识的潜意识的这个层次的一个某种力量的干扰而在他的写作中发生了那个影响，那么凭什么我们说有一个所谓作者自觉的价值观在引导。也就是说甚至有作者自己都不知道的某些东西，都已经加进到他的具体写作里面来，所以怎么可能有一个所谓的清楚的作者的价值观在作为指引呢？</li>
+<li>假设作者这么做了，你会认为这是一个好的做法么？<br>一个作者用他自己的价值观，善恶二分然后是非分明，就他所认为对的东西作为全书的主轴去引导，你认为这样会是一部好的小说吗？<br>一部好的小说不是更应该是很<strong>广袤多元的、开展人性的各种可能</strong>吗？<br>这样一来，假如有一个很明显的一个优势的意见。在作为最高亢的唯一的独白，你真的会觉得这是一部好的作品，会深深地吸引你吗？</li>
+<li>作者在创作的时候，除了潜意识外，还有没有别的一些，我们真的没有办法，一直到今天为止都没有办法去破解的创作的奥妙呢？一个活生生的小说人物根本不受小说家的控制，他有自己的生命，当你刚开始好像是你创造他出来的同时呢，他事实上就已经开始独立出来了，你必须顺着他的个性去写，他已经脱离了你的掌控，他有他的生命，于是小说家反而退居到只不过是把这个生命呈现出了的一个媒介而已。<br>创作时连作家本身恐怕都不能参透的奥妙，所以如果我们要问这个小说家的价值观究竟是什么，他到底想要表达的是什么意思，这个问题是不是全部问错了？</li>
+<li>就算作者有一个很明确的意见，他也如实地表达了，可是不要忘记，一个作品的生命是由读者所赋予的，读者不去读不去诠释，作品就是死的，只有读者的阅读，才是你赋予作品生命的力量。<br>你读者怎么读既然不那么重要，为什么我们要去管作者在想什么呢？</li>
+</ol>
+<section style="align-items: left;" class="">
+    <section style="box-sizing:border-box;width:25px;display:inline-block;">
+        <img class="assistant" style="box-sizing:border-box;vertical-align:inherit;width:100%;display:block;" src="https://bdn.135editor.com/files/images/editor_styles/b018c623815ca1802de3a386f3d25065.jpg" data-ratio="0.72" data-w="40" data-width="100%" />
+    </section>
+    <section class="135brush" data-brushtype="text" style="margin-top:6px;margin-left:15px;text-align: center;font-size:18px;color:#333;letter-spacing:1.5px;">
+        <strong>作者已死。</strong>
+    </section>
+    <section class="135brush" data-brushtype="text" style="margin-top:5px;text-align: right;font-size:16px;color:#333;letter-spacing:1.5px;">
+    ——罗兰•巴特
+    </section>
+</section>
+
+<h1 id="欧丽娟老师绘制的人物关系表"><a href="#欧丽娟老师绘制的人物关系表" class="headerlink" title="欧丽娟老师绘制的人物关系表"></a>欧丽娟老师绘制的人物关系表</h1><p><img src="http://pic.mcatk.com/charlot-pictures/202201302140388.png" alt="关系图谱"></p>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2021/12/02/人，徒有其表/" data-toggle="tooltip" data-placement="top" title="人，徒有其表">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2021/11/30/本地springboot后端配置/" data-toggle="tooltip" data-placement="top" title="本地springboot后端配置">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                          <a class="tag" href="/tags/#红楼梦" title="红楼梦">红楼梦</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://atksoto.com/" target="_blank">Soto-Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Charlot316">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Charlot&#39;s Blog 2022 
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a target="_blank" rel="noopener" href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://h2pl.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://h2pl.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>

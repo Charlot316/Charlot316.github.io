@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          回览 - 椎名的博客 | Charlot&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://h2pl.github.io/2021/11/11/回览/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.min.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Charlot&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://h2pl.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#东关片行" title="东关片行">东关片行</a>
+                        
+                          <a class="tag" href="/tags/#月之背" title="月之背">月之背</a>
+                        
+                          <a class="tag" href="/tags/#左顾旁道" title="左顾旁道">左顾旁道</a>
+                        
+                    </div>
+                    <h1>回览</h1>
+                    <h2 class="subheading">Retrospect</h2>
+                    <span class="meta">
+                        Posted by Charlot on
+                        2021-11-11
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <p><a target="_blank" rel="noopener" href="https://charlot316.github.io/about/">目录</a></p>
+<p>三个月后的那个混乱的下午，当她和安新看着眼前那个全神贯注的女生不断呓语着从缓冲渠泵出的不知所云的碎句时，高悦才想起来，好像每次回览都是这么开始的。那时，身体的右边吹来温柔的风，意识像漩涡一般旋转，下沉。等知觉再次展开成线状时，她又坐在电脑桌前，打开了一篇文档。</p>
+<p>最开头写的是：“感谢你愿意阅读这段文字。我好像有好多话想说，但又越发觉得羞耻，有些说不出口，我想也许这些让虚构的人物说出来会让我轻松一些吧，所以这本不是什么正经的小说，不过是我的自言自语罢了。虽然我想也许不会有人细看，但如果你有缘能看到这些，还希望你不要深究里面的段落，把它当成笑话来看就是，也别再给其他人传阅，嘲讽里面的遣词了。”<br>后面确实是小说一样的文体，段落格式和前面那段话有些差别，好像前面那段话是后来才补加上去的。</p>
+<p>&lt;待扩充文字&gt;</p>
+<p>前面的文字戛然而止，另起了几行之后是下面这些内容：<br>“你有没有发现，你想的东西都是连不成篇的。你总是想得多，写得少，不知道你怎么会如此懒惰，你所珍视的时间，不知道被你浪费在了何处。倒是喜欢躺在床上自怨自艾。你到底才经历过什么？怎么动不动就像家族被灭了门一样？我丝毫不可怜你，你也不要只管可怜你自己，你有什么好可怜的。”<br>她一动也不动，似乎思忖了一会，面无表情地按下退格，把这段话删掉了。</p>
+<p>“这次要从哪里开始呢？”</p>
+<p>敲下键盘的时候，她才发现键盘下面夹着这张只写着这一句话的信纸，那是她自己的字迹。<br>与此同时，正因为她的注意力从电脑屏幕上移开，她才注意到周围的环境：房间里没有大灯，暗得看不到房间的边角。</p>
+<p>桌椅背对着窗，理应有光穿透背后的窗棂投在桌面上，然而桌面仅仅靠电脑屏幕点亮着。</p>
+<p>“你看到了什么？”</p>
+<p>高悦听到一声低语，好像有人在用手搭着她的肩膀。她猛地一回头，什么都没有，只能看到窗外，白炽的太阳悬在“幕”的中央，但除此之外的一切都被黑色吞没，她看不到任何东西的轮廓。<br>她边望着边走近窗边，窗子里倒映的她也走近来。她扶着窗沿，看着窗外的惨黑，理所当然地对着那不知道是什么回答道：“什么都没有。”</p>
+<p>没有低语声。</p>
+<p>高悦回到位子上坐了下来，她不知道发生了什么，也不在意发生了什么，就这样好像发了一会呆，等她定睛于信纸上，她才发现上面的内容慢慢地变成了：</p>
+<p>“你看到了什么？”</p>
+<p>高悦背后突然传来喧闹的声音，她疑惑着转过头去：</p>
+<p>黑板，教室，聒噪的小学生，不大会笑的小女孩，下课铃，涌出去的人群，放学。晚饭，“她”坐在桌子的一角。</p>
+<p>骤然消失。</p>
+<p>“她为什么……”</p>
+<p>哭泣，凶恶的大人，不准回想。画像，纸箱，里界的边角。“如果不是坏事做尽了的话”，窃窃私语。晚饭，父亲说：“没事的”，一个人的房间。</p>
+<p>“她是不是……”</p>
+<p>黑板，教室，聒噪的小学生，下课铃，涌出去的人群，厌恶的放学，晚饭，父亲说：“没事的”，似曾相识，好像在遗忘，一个人的房间。</p>
+<p>“她大概真的……”</p>
+<p>黑板，教室，聒噪的小学生，断续下落的粉笔，“我的‘入口’是什么呢？”，下课铃，下课铃……铃声，铃声……闹钟声……</p>
+<p>闹钟响个不停。</p>
+<p>高悦睁开了眼，坐了起来，呆滞了很久。<br>她的床贴在紧闭着的窗户边，床头柜上只放了一个闹钟和一盏台灯，而床下散漫地放了几个箱子。书桌贴在另一片墙上，上面安了两排书架，上面很整齐地排放着两排书，一排是教科书，头几本看上去非常的老旧，表皮都卷了起来，但后面看起来都像是新买回来刚拆封的，另一排则全是崭新的小说、散文集。</p>
+<p>“故弄玄虚。”这是她清醒过来后，浮现在她脑海里的第一个完整的词。</p>
+<p>烦人的闹铃声终于停了下来，接下来传出来的是新闻播音员的声音：“下面播放早间新闻……”高悦甚至没有意识到自己正在听，她的手不自觉地在被子上比划。那条新闻说的是从南关通往南关行止的隧道‘入口’处出现了坍塌事故，所幸没有人员伤亡。</p>
+<p>她愣了一下，突然神经质地细声念了一句：</p>
+<p>“对立。”</p>
+<div style="text-align: right;">
+第零回 回览
+    </div>
+    <div style="text-align: right;">
+第一篇 左顾旁道
+</div>
+
+<p>下一回 <a target="_blank" rel="noopener" href="https://charlot316.github.io/2021/11/27/出迎/">出迎</a></p>
+<h3 id="更新日志"><a href="#更新日志" class="headerlink" title="更新日志"></a>更新日志</h3><ul>
+<li>11.29<ul>
+<li>省略掉的开头要进行一些扩充，我先在这里记一笔。</li>
+</ul>
+</li>
+</ul>
+
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2021/11/13/夜巡手册/" data-toggle="tooltip" data-placement="top" title="夜巡手册">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2021/11/11/记一次拖延/" data-toggle="tooltip" data-placement="top" title="记一次拖延">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#东关片行" title="东关片行">东关片行</a>
+                        
+                          <a class="tag" href="/tags/#月之背" title="月之背">月之背</a>
+                        
+                          <a class="tag" href="/tags/#左顾旁道" title="左顾旁道">左顾旁道</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://atksoto.com/" target="_blank">Soto-Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Charlot316">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Charlot&#39;s Blog 2022 
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a target="_blank" rel="noopener" href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://h2pl.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://h2pl.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>

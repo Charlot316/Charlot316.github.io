@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          雪 - 椎名的博客 | Charlot&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://h2pl.github.io/2021/11/07/雪/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.min.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Charlot&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://h2pl.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('http://pic.mcatk.com/charlot-pictures/winter-title.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#琐碎的" title="琐碎的">琐碎的</a>
+                        
+                    </div>
+                    <h1>雪</h1>
+                    <h2 class="subheading">雪夜记事</h2>
+                    <span class="meta">
+                        Posted by Charlot on
+                        2021-11-07
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h2 id="下雪了，北京"><a href="#下雪了，北京" class="headerlink" title="下雪了，北京"></a><span class="content-title">下雪了，北京</span></h2><section style="margin: 10px auto;text-align: left;">
+    <section class="_135editor" style="margin: 10px auto;text-align: right;transform: rotatez(0deg);-webkit-transform: rotatez(0deg);-moz-transform: rotatez(0deg);-o-transform: rotatez(0deg);">
+        <section style="display: flex;justify-content: flex-end;align-items: center;">
+                <section style="font-size: 22px;letter-spacing: 1.5px;color: #6e6e6e;">
+                    <strong>NO.</strong><strong class="autonum" data-original-title="" title="">1</strong>
+                </section>
+                <section class="assistant" style="box-sizing:border-box;width: 1px;height: 24px;background-color: #6e6e6e;margin: 0 10px;"></section>
+                <section class="135brush" data-brushtype="text" style="font-size: 22px;letter-spacing: 1.5px;color: #000;">
+                    <strong>下雪了，北京</strong>
+                </section>
+            </section>
+    </section>
+</section>
+
+<section data-autoskip="1" class="135brush" style="text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:18px;color:#6e6e6e;background: transparent;">
+    <p style="vertical-align:inherit;">
+        有段时间没有见过像样的雪了。<p/>
+        20 年的杭州只有冷湿，没有飘过雪花，21 年初的杭州和北京都没有下雪。硬是说起来的话，20 年末北京应该是飘过几次雪花，但都不成气候，没几个小时就化尽了。<p/>
+        明明还只是 11 月初,今年总算见到了像样的雪。起先还只是大风卷着大雨，行道树的叶子被吹落一地，地面都铺上了叶子做成的毯子。
+    </p>
+</section>
+
+
+
+<section style="text-align: center;margin: 10px auto;">
+    <section class="box-edit _135editor" style="display: flex;justify-content: space-between;align-items: center;margin-top: 20px;">
+        <section style="box-sizing:border-box;width: 49%;" data-width="49%">
+            <section style="box-sizing:border-box;width: 25px;height: 1px;background-color: #2e2e2e;"></section>
+            <section style="display: flex;">
+                <section style="box-sizing:border-box;width: 1px;height: 25px;background-color: #2e2e2e;"></section>
+                <section style="box-sizing:border-box;width: 100%;flex: 1;margin: 4px;" data-width="100%">
+                    <img style="box-sizing:border-box;vertical-align:inherit;width: 100%; display: block;" src="http://pic.mcatk.com/charlot-pictures/yuki1.png" data-ratio="0.6636363636363637" data-w="241" hm_fix="297:291" data-width="100%"/>
+                </section>
+                <section style="display: flex;align-items: flex-end;">
+                    <section style="box-sizing:border-box;width: 1px;height: 70%;background-color: #2e2e2e;"></section>
+                </section>
+            </section>
+            <section style="display: flex;justify-content: flex-end;">
+                <section style="box-sizing:border-box;width: 70%;height: 1px;background-color: #2e2e2e;" data-width="70%"></section>
+            </section>
+        </section>
+        <section style="box-sizing:border-box;width: 49%;" data-width="49%">
+            <section style="display:flex;justify-content: flex-start;align-items: flex-start;">
+                <section style="display: flex;margin: 7px 6px 0 0;">
+                    <section style="box-sizing:border-box;width: 7px;height: 7px;background-color: #000;transform: rotate(0deg);"></section>
+                    <section style="box-sizing:border-box;width: 7px;height: 7px;background-color: #000000;margin: 2px 0 0 -5px;"></section>
+                </section>
+                <section data-autoskip="1" class="135brush" style="text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:14px;color:#333;background: transparent;">
+                    <p style="vertical-align:inherit;">
+                        从绿园出来的路上能看到银杏叶像雨一样纷纷扬扬地飘下
+                    </p>
+                </section>
+            </section>
+        </section>
+    </section>
+    <section class="box-edit _135editor" style="display: flex;justify-content: space-between;align-items: center;margin-top: 20px;">
+        <section style="box-sizing:border-box;width: 49%;" data-width="49%">
+            <section style="display:flex;justify-content: flex-start;align-items: flex-start;">
+                <section style="display: flex;margin: 7px 6px 0 0;">
+                    <section style="box-sizing:border-box;width: 7px;height: 7px;background-color: #000;transform: rotate(0deg);"></section>
+                    <section style="box-sizing:border-box;width: 7px;height: 7px;background-color: #000000;margin: 2px 0 0 -5px;"></section>
+                </section>
+                <section data-autoskip="1" class="135brush" style="text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:14px;color:#333;background: transparent;">
+                    <p style="vertical-align:inherit;">
+                        图书馆门前尽是梧桐落下的红叶
+                    </p>
+                </section>
+            </section>
+        </section>
+        <section style="box-sizing:border-box;width: 49%;" data-width="49%">
+            <section style="box-sizing:border-box;width: 25px;height: 1px;background-color: #2e2e2e;"></section>
+            <section style="display: flex;">
+                <section style="box-sizing:border-box;width: 1px;height: 25px;background-color: #2e2e2e;"></section>
+                <section style="box-sizing:border-box;width: 100%;flex: 1;margin: 4px;" data-width="100%">
+                    <img style="box-sizing:border-box;vertical-align:inherit;width: 100%; display: block;" src="http://pic.mcatk.com/charlot-pictures/yuki2.png" data-ratio="0.6636363636363637" data-w="241" data-width="100%"/>
+                </section>
+                <section style="display: flex;align-items: flex-end;">
+                    <section style="box-sizing:border-box;width: 1px;height: 70%;background-color: #2e2e2e;"></section>
+                </section>
+            </section>
+            <section style="display: flex;justify-content: flex-end;">
+                <section style="box-sizing:border-box;width: 70%;height: 1px;background-color: #2e2e2e;" data-width="70%"></section>
+            </section>
+        </section>
+    </section>
+</section>
+
+<section data-autoskip="1" class="135brush" style="text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:18px;color:#6e6e6e;background: transparent;">
+    <p style="vertical-align:inherit;">
+        大概是七点的时候下起的雪，我还是在朋友圈里先见到的雪花。只过了没半个小时，就看到雪积成一片了。北京的风从四面八方吹来，撑着的伞不堪重负，行人都是被吹着走。我还记得鲁迅写的《北国的雪》，南北方的雪果真是有区别的。南方的雪堆一踩就深深陷下去，北方的雪总是硬实的一团。
+    </p>
+</section>
+
+<h2 id="高中的雪"><a href="#高中的雪" class="headerlink" title="高中的雪"></a><span class="content-title">高中的雪</span></h2><section style="margin: 10px auto;text-align: left;">
+    <section class="_135editor" style="margin: 10px auto;text-align: right;transform: rotatez(0deg);-webkit-transform: rotatez(0deg);-moz-transform: rotatez(0deg);-o-transform: rotatez(0deg);">
+        <section style="display: flex;justify-content: flex-end;align-items: center;">
+                <section style="font-size: 22px;letter-spacing: 1.5px;color: #6e6e6e;">
+                    <strong>NO.</strong><strong class="autonum" data-original-title="" title="">2</strong>
+                </section>
+                <section class="assistant" style="box-sizing:border-box;width: 1px;height: 24px;background-color: #6e6e6e;margin: 0 10px;"></section>
+                <section class="135brush" data-brushtype="text" style="font-size: 22px;letter-spacing: 1.5px;color: #000;">
+                    <strong>高中的雪</strong>
+                </section>
+            </section>
+    </section>
+</section>
+
+<section data-autoskip="1" class="135brush" style="text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:18px;color:#6e6e6e;background: transparent;">
+    <p style="vertical-align:inherit;">
+        高中的时候下过好大的雪，正是高二和高三冬天的时候。</p>
+        高二的一次下大雪我是这么度过的：
+    </p>
+</section>
+
+<section style="box-sizing:border-box;width:100%;margin:10px auto;padding: 10px;" data-width="100%" class="">
+    <section style="border:1px #333 solid;box-sizing: border-box;background:#000;">
+        <section style="border:1px #333 solid;margin: 3px 0px -7px -3px;box-sizing: border-box; background:rgba(255,255,255,1);border-bottom:none;">
+            <section style="padding:1em;" class="">
+                <section style="box-sizing:border-box;width:20px;">
+                    <img style="box-sizing:border-box;vertical-align:inherit;width:100%;display:block;" src="https://bdn.135editor.com/files/images/editor_styles/e24e5904ac70f8160b49b736fb753434.jpg" data-ratio="0.7" data-width="100%" data-w="40"/>
+                </section>
+                <section data-autoskip="1" class="135brush" style="font-size: 14px;text-align: left;letter-spacing: 1.5px;line-height: 1.75em;color: #3f3f3f;padding:1em;">
+                    <p style="vertical-align:inherit;">
+                        高二上某天晚自习我懒得去吃晚饭，同桌赏了我一包魔芋爽，我就空腹吃了。那几天期末考试刚考完所以晚自习超级空，我边看百年孤独边感觉肚子隐隐作痛。晚上我整个肚子痛得不行，人生为数不多的一次通宵居然在厕所里度过。
+                        第二天貌似因为起炎症我就开始发烧，去医院开了药，其中有头孢。
+                        当天晚上吃完药之后烧是退了，但我好死不死对青霉素和头孢过敏，晚上全身奇痒无比，根本睡不着觉，更可怕的是我全身的皮肤都肿胀成原先体积的三倍，我的手整个肿得比我原先的头还大，我的脸直接肿成了一个球。第二天又去了医院开了过敏药才好起来。<br/>
+                        这件事情告诉我们：不要空腹吃魔芋爽
+                    </p>
+                    <p style="text-align:right">
+                        写于2020.6.8 23:58
+                    </p>
+                </section>
+            </section>
+        </section>
+    </section>
+    <section style="padding-right:2px;margin-left:-2px;margin-top:6px;" class="">
+        <img style="box-sizing:border-box;vertical-align:inherit;width:100%;display:block;" src="https://bdn.135editor.com/files/images/editor_styles/4d317f7ae0bfebe98907f5538e2200db.jpg" data-ratio="0.06473214285714286" data-width="100%" data-w="501"/>
+    </section>
+</section>
+
+<section data-autoskip="1" class="135brush" style="text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:18px;color:#6e6e6e;background: transparent;">
+    <p style="vertical-align:inherit;">
+        也许是因为肚子实在是很痛，上面那段甚至没提到那天的雪，从地铁口出来，雪把人行道埋得严严实实的，我倒是只想着能早点回到家方便。<p/>
+        之后就到了高三。第一次选考失利，十一月一直很沮丧。但到了十二月，不知道是因为自己的心态开始摆烂，还是因为租到了学校对面，心态大为懈怠，总之心思也没有特别花在学习上，只是觉得那个冬天过得特别安心、快活。和我合租的同学人都特别好，尤其是住对房的朋友，当时经常和他在单休回学校自习，还跟他骑车去西湖边环湖跑，找他看了好几场电影。杭州不像北方，冬天不会供暖，但是在教室和零星留下来的几个同学一起自习，总是觉得很暖和。<p/>
+        高三下了好几场雪，十二月的几场雪都把操场和篮球场覆满了，我总是看到雪花就没了学习的意思，从教室里蹦出来拍雪，拍出来也总是不好看。教学楼里有很多手巧的同学，做出来好多可爱的雪人，我却总是连雪球都滚不圆。
+    </p>
+</section>
+
+
+
+<section style="text-align: center;margin: 10px auto;">
+    <section style="display :inline-block;margin: 15px 0 0 10px;">
+        <section style="display: flex;justify-content: center;align-items: center;" hm_fix="408:565">
+            <section style="box-sizing:border-box;display: flex;justify-content: flex-start;align-items: flex-end;margin-right: -40px;width: 60%;flex: 1;" data-width="60%">
+                <section style="box-sizing:border-box;width: 100%;margin-right: -21px;box-shadow: -10px -10px 0 0 #270c0c;flex: 1;" data-width="100%" class="">
+                    <img style="box-sizing:border-box;vertical-align:inherit;width: 100%; display: block;" src="http://pic.mcatk.com/charlot-pictures/yuki3.png" data-ratio="0.74822695035461" data-w="282" data-width="100%" />
+                </section>
+                <section class="assistant" style="box-sizing:border-box;width: 38px;">
+                    <br/>
+                </section>
+            </section>
+            <section style="display: inline-block;">
+                <section style="background-color: #000;padding: 4px 15px;">
+                    <section class="135brush" data-brushtype="text" style="font-size: 14px;letter-spacing: 1.5px;color: #fff;white-space:nowrap;">
+                        教学楼里发现的小雪人
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+
+<section class="_135editor" data-role="paragraph">
+    <p style="vertical-align:inherit;">
+        <br/>
+    </p>
+</section>
+
+
+<section data-autoskip="1" class="135brush" style="text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:18px;color:#6e6e6e;background: transparent;">
+    <p style="vertical-align:inherit;">
+        我还记得有天晚自习下课，和同学交流续写的情节，因为同学写得实在是离谱，我和她在教室里大笑，笑声穿透了旁边的教师办公室，以至于第二天老师还在课上暗戳戳地提到“昨晚听到了放肆的笑声”。进到大学好像再也没有放肆地笑过。<p/>
+        元旦那天也下了雪，那天还跑去KTV给同学庆生，大家才刚坐上公交，窗外的风雪就飞舞了起来。2018年就在歌声和风雪声里落幕了。我永远想念2018年，也想念2019年的上半阕。好像自从高考后，时间就被割裂开，高三的日子过得好慢好慢，大学每一天都过得好快，好像就这么虚度过去了。
+    </p>
+</section>
+
+<h2 id="外婆和雪"><a href="#外婆和雪" class="headerlink" title="外婆和雪"></a><span class="content-title">外婆和雪</span></h2><section style="margin: 10px auto;text-align: left;">
+    <section class="_135editor" style="margin: 10px auto;text-align: right;transform: rotatez(0deg);-webkit-transform: rotatez(0deg);-moz-transform: rotatez(0deg);-o-transform: rotatez(0deg);">
+        <section style="display: flex;justify-content: flex-end;align-items: center;">
+                <section style="font-size: 22px;letter-spacing: 1.5px;color: #6e6e6e;">
+                    <strong>NO.</strong><strong class="autonum" data-original-title="" title="">3</strong>
+                </section>
+                <section class="assistant" style="box-sizing:border-box;width: 1px;height: 24px;background-color: #6e6e6e;margin: 0 10px;"></section>
+                <section class="135brush" data-brushtype="text" style="font-size: 22px;letter-spacing: 1.5px;color: #000;">
+                    <strong>外婆和雪</strong>
+                </section>
+            </section>
+    </section>
+</section>
+
+<section data-autoskip="1" class="135brush" style="text-align: justify;line-height:1.75em;letter-spacing: 1.5px;font-size:18px;color:#6e6e6e;background: transparent;">
+    <p style="vertical-align:inherit;">
+        我好像很少见到外婆，她一般住在大姨家里，不常来我们家，我们一个月也只去大姨家一两次。自打我记事起，她就一直要靠胰岛素维持正常的生活。每次饭后都得打针，每次打针还要控制剂量，有几次因为没控制好，外婆低血糖昏了过去，一家子都急得不得了。<p/>
+        外婆个子不高，看到她的时候她总是在打线织毛衣。她织出来的毛衣不像外头的毛衣那么膈着皮肤，穿着总是很舒服。外婆偶尔会用我听不大懂的方言和我讲话，我大体也只能听到“要好好读书”云云；再偶尔会呓语似的唱一些歌谣，我仍然是听不懂的。<p/>
+        奶奶好像有些不待见外婆，是因为爷爷刚走的时候，外婆安慰她说：“人走了，说不定也是件好事情。”<p/>
+        爷爷很好学，他有一本很小的新华字典和一个小册子，小册子上做满了工工整整的笔记，全是新的汉字和词汇。爷爷奶奶在偏远的乡下生活了大半辈子了，他们一开始都是不认得几个字的，虽然奶奶一直没什么长进，但是爷爷认识的字越来越多，还经常读报纸给奶奶听，我一直认为爷爷是我们家里最有文化的人。<p/>
+        爷爷生命的最后一年是在肿瘤医院里度过的。那一年他都一直在病房里，我好少去医院看到他，大多的时间都只能从爸爸的电话里了解一些爷爷的情况。这会情况好了一些，那会好像又严重了，要动手术。后来又要动好多好多手术。<p/>
+        那一天爸爸说，爷爷的身体里割下来脸盆一样大的瘤块。<p/>
+        爷爷插着呼吸机，脖子上插满了管子，他已经说不出话了，只能艰难地用笔写下一些字，写的是他想回老家去。那是看爷爷的最后一眼，我记得他的床头柜上还是摆着那本新华字典。爸爸陪他坐了一路的救护车，一直回到广西，最后在老家关上了呼吸机。<p/>
+        “人走了，怎么会是件好事呢？”奶奶没有明说，但她私下里跟我说，她对外婆说的话很生气。爷爷走了，我一方面和奶奶一样好想他，另一方面，我现在回想起爷爷身体里有脸盆一样大的瘤块，还是觉得好难受。他再也不用受这些苦了，会不会这真的是好事呢。<p/>
+        我是后来才知道奶奶买菜有记账的习惯，因为她每次都会把我叫过去，跟我报买来的菜名和价钱，让我写下来。我想之前一直不知道这些，是那时候爷爷总是会帮她写的缘故。<p/>
+        爷爷是08年走的，奶奶在杭州呆到11年左右就搬回老家住了，于是妈妈把外婆接了过来。<p/>
+        外婆还是天天在房间里织衣裳。打完胰岛素之后，我就看到她小小的一个人影坐在阳台边，边哼着歌，手上边撑着线，边看底下过往的行人。看到我来了，她总不忘叮嘱一句“要好好学习”。<p/>
+        写了那么多还没有写到雪。<p/>
+        其实是我在妈妈的博客里看到的，大概说的是：“株洲在南边，很少下雪。那一年好不容易下了场大雪，我说我想尝尝雪的味道，你就真的认认真真地给我收集了好大一片雪郑重其事地放在锅里煮。煮啊煮，我期待了好久，盛了一碗来喝，发现原来和正常的水是一样的。”<p/>
+        那是外婆走之后一周妈妈写的。外婆走的那一天我还刚开学，正在收拾新书，就听见外头妈妈突然叫了医生过来，吵吵闹闹的。可能是因为我真的和外婆接触的太少了，我当时只知道外婆走了，妈妈失了神一样在公司住了一周不敢回家，一直写着博客。等初中我把她写的翻出来读了一遍，她写了邻居家小孩欺负她，外婆弱小的身子挡在前面训斥他们的事，还写了前面提的煮雪的事，还有好多好多，我都记不真切了，我才觉得好难过好难过。要是当时能多听懂一句外婆说的话，多听懂她唱的一句词，多了解她一些该多好。<p/>
+        妈妈在结尾写说：“没有人会为您作传，我也只能够写下寥寥几笔。”我也顿感语言文字的苍白，在这样的雪夜只能写下那么几句话，想起那么一点事情。<p/>
+        风雪也许早就停了，就算气温没法升到零上，太阳出来，雪终归是要化的。我突然不知道还有什么能写的了，只想说，珍惜眼前的雪，珍惜眼前的雪…<p/>
+    </p>
+</section>
+
+
+
+<style>
+.content-title{
+    color:white;
+}
+</style>
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2021/11/08/新年心愿/" data-toggle="tooltip" data-placement="top" title="新年心愿">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2021/10/27/vue基本操作/" data-toggle="tooltip" data-placement="top" title="vue基本操作">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#琐碎的" title="琐碎的">琐碎的</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://atksoto.com/" target="_blank">Soto-Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Charlot316">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Charlot&#39;s Blog 2022 
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a target="_blank" rel="noopener" href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://h2pl.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://h2pl.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>

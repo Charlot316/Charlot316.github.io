@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+          不使用navicat导入sql的方法 - 椎名的博客 | Charlot&#39;s Blog
+        
+    </title>
+
+    <link rel="canonical" href="http://h2pl.github.io/2021/12/03/不使用navicat导入sql的方法/">
+
+    <!-- Bootstrap Core CSS -->
+    
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/hux-blog.min.css">
+
+
+    <!-- Pygments Highlight CSS -->
+    
+<link rel="stylesheet" href="/css/highlight.css">
+
+
+    <!-- Custom Fonts -->
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"> -->
+    <!-- Hux change font-awesome CDN to qiniu -->
+    <link href="https://cdn.staticfile.org/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+
+    <!-- Hux Delete, sad but pending in China
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/
+    css'>
+    -->
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- ga & ba script hoook -->
+    <script></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<!-- hack iOS CSS :active style -->
+<body ontouchstart="">
+
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Charlot&#39;s Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <!-- Known Issue, found by Hux:
+            <nav>'s height woule be hold on by its content.
+            so, when navbar scale out, the <nav> will cover tags.
+            also mask any touch event of tags, unfortunately.
+        -->
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">Home</a>
+                    </li>
+
+                    
+
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/about/">About</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/archives/">Archives</a>
+                        </li>
+                        
+                    
+
+                        
+                        <li>
+                            <a href="/tags/">Tags</a>
+                        </li>
+                        
+                    
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+<script>
+    // Drop Bootstarp low-performance Navbar
+    // Use customize navbar with high-quality material design animation
+    // in high-perf jank-free CSS3 implementation
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        // CLOSE
+            $navbar.className = " ";
+            // wait until animation end.
+            setTimeout(function(){
+                // prevent frequently toggle
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        // OPEN
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+    <!-- Main Content -->
+    
+<!-- Image to hack wechat -->
+<!-- <img src="http://h2pl.github.io/img/icon_wechat.png" width="0" height="0"> -->
+<!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
+
+<!-- Post Header -->
+<style type="text/css">
+    header.intro-header{
+        background-image: url('/img/home-bg.jpg')
+    }
+</style>
+<header class="intro-header" >
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                          <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                    </div>
+                    <h1>不使用navicat导入sql的方法</h1>
+                    <h2 class="subheading">给队友们写的指南</h2>
+                    <span class="meta">
+                        Posted by Charlot on
+                        2021-12-03
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+    <!-- Post Container -->
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                <h1 id="IDEA-自带的Database插件"><a href="#IDEA-自带的Database插件" class="headerlink" title="IDEA 自带的Database插件"></a>IDEA 自带的Database插件</h1><p>点击这里打开Database插件，设置数据源（没有的话，去plugins里下载就可以）</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql1.png" alt="image-20211203151750547"></p>
+<p>会跳出设置数据库信息的窗口</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql2.png" alt="image-20211203152733083"></p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql3.png" alt="image-20211203152035711"></p>
+<p>报这个错的时候按照<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_45812770/article/details/107996966">这个网页</a>提供的方法改正就可以（其实就是点进Set time zone，把时区修改为GMT，像下图这样）</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql4.png" alt="image-20211203152431334"></p>
+<p>接下来，右键你刚才创建的和数据库的连接，选择new schema</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql5.png" alt="image-20211203153035051"></p>
+<p>命名为academic_system</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql6.png" alt="image-20211203153056849"></p>
+<p>右键academic_system，选择run sql script</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql7.png" alt="image-20211203153247377"></p>
+<p>选择提供的sql并执行即可</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql8.png" alt="image-20211203153355867"></p>
+<p>执行成功后，你就能看到新建的表格啦</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql9.png" alt="image-20211203153409460"></p>
+<p>之前提供的那个sql里面，user的有几列被设置为了not null，这是有问题的，需要去掉。（只是这一版sql有问题而已！之后我会提供正确的sql，可以直接使用正确的sql进行加载，就不用做后面的操作了）</p>
+<p>右键选中user表，选择modify table，<strong>双击</strong>选中需要修改的几个属性把not null的勾去掉即可（需要修改的属性有:image、like_num、follow_num）</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql10.png" alt="image-20211203154440467"></p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql11.png" alt="image-20211203154520935"></p>
+<p>（like和follow_num也是同样的操作，我就不演示了）</p>
+<p>修改完之后点击execute即可</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql12.png" alt="image-20211203154617581"></p>
+<p>此时后端就是完全可以使用的了，启动后端之后，前端的登陆注册功能就都可以使用啦！</p>
+<p>另外附赠一下将数据库导出为sql的操作。</p>
+<p>navicat是右键要导出的数据库，选择转储SQL文件，选择导出结构和数据或选择仅结构（顾名思义就知道两个选项分别是什么意思）</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql13.png" alt="image-20211203155433810"></p>
+<p>idea是这样：</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql14.png" alt="image-20211203155233731"></p>
+<p>点击之后底下就会生成所有表格的sql，点击保存即可</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql15.png" alt="image-20211203155312882"></p>
+<p>PS：我个人认为navicat生成的sql更好，因为navicat会有<code>DROP TABLE IF EXISTS application;</code>这句话，IDEA是没有的，所以运行navicat生成的sql可以直接更新数据库结构，而IDEA生成的sql只能用于新建数据库结构，没法更新，因为会提示XXX table already exists。不过不用担心，后端提供的sql一般都是navicat生成的，我们拿来就可以直接用。</p>
+<h3 id="注意：前提是你已经安装好mysql，而且已经设置好了root账户和密码，如果root账户和密码没设置的话还需要先设置一下"><a href="#注意：前提是你已经安装好mysql，而且已经设置好了root账户和密码，如果root账户和密码没设置的话还需要先设置一下" class="headerlink" title="注意：前提是你已经安装好mysql，而且已经设置好了root账户和密码，如果root账户和密码没设置的话还需要先设置一下"></a>注意：前提是你已经安装好mysql，而且已经设置好了root账户和密码，如果root账户和密码没设置的话还需要先设置一下</h3><p>参考<a target="_blank" rel="noopener" href="https://www.jb51.net/article/169143.htm">这个网页</a></p>
+<h1 id="直接用控制台加载sql"><a href="#直接用控制台加载sql" class="headerlink" title="直接用控制台加载sql"></a>直接用控制台加载sql</h1><p>在cmd输入<code>mysql -u root -p</code>这句话进入mysql，接下来会提示你输入密码，输入123456（你自己设置的）即可</p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql16.png" alt="image-20211203160223678"></p>
+<p>（如果提mysql不是内部或外部命令也不是可运行的话是环境变量的配置问题，请参考<a target="_blank" rel="noopener" href="https://www.cnblogs.com/love-yh/p/7157973.html">这个网页</a>）</p>
+<p>新建academic_system数据库，输入指令：</p>
+<p><code>CREATE DATABASE academic_system;</code></p>
+<p>接下来输入source命令</p>
+<p><code>source $&#123;sql文件的存储路径&#125;</code></p>
+<p><img src="http://pic.mcatk.com/charlot-pictures/sql17.png" alt="image-20211203160508125"></p>
+<p>到这里为止数据库就建立完成啦！</p>
+<p>接下来修改三处not null的bug，输入下列命令</p>
+<p><code>alter table user modify image varchar(100) null;</code></p>
+<p><code>alter table user modify like_num int null;</code></p>
+<p><code>alter table user modify follow_num int null;</code></p>
+<p>这样就全部完成啦！前端的登录注册页面就可以使用啦</p>
+<h3 id="注：我其实会提供已经改好null这个bug的sql，大家不用自己去改这个bug，这样节省大家一些时间。但是我还是在md里提及了修改null的bug的方法，如果大家以后遇到了类似的问题，可以参考这里的修改方法。"><a href="#注：我其实会提供已经改好null这个bug的sql，大家不用自己去改这个bug，这样节省大家一些时间。但是我还是在md里提及了修改null的bug的方法，如果大家以后遇到了类似的问题，可以参考这里的修改方法。" class="headerlink" title="注：我其实会提供已经改好null这个bug的sql，大家不用自己去改这个bug，这样节省大家一些时间。但是我还是在md里提及了修改null的bug的方法，如果大家以后遇到了类似的问题，可以参考这里的修改方法。"></a>注：我其实会提供已经改好null这个bug的sql，大家不用自己去改这个bug，这样节省大家一些时间。但是我还是在md里提及了修改null的bug的方法，如果大家以后遇到了类似的问题，可以参考这里的修改方法。</h3>
+
+                <hr>
+
+                
+
+                <ul class="pager">
+                    
+                        <li class="previous">
+                            <a href="/2021/12/11/文字的触发/" data-toggle="tooltip" data-placement="top" title="文字的触发">&larr; Previous Post</a>
+                        </li>
+                    
+                    
+                        <li class="next">
+                            <a href="/2021/12/02/人，徒有其表/" data-toggle="tooltip" data-placement="top" title="人，徒有其表">Next Post &rarr;</a>
+                        </li>
+                    
+                </ul>
+
+                
+
+                
+
+            </div>
+    <!-- Side Catalog Container -->
+        
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+        
+
+    <!-- Sidebar Container -->
+
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                <!-- Featured Tags -->
+                
+                <section>
+                    <!-- no hr -->
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                       
+                          <a class="tag" href="/tags/#学习" title="学习">学习</a>
+                        
+                          <a class="tag" href="/tags/#前端" title="前端">前端</a>
+                        
+                    </div>
+                </section>
+                
+
+                <!-- Friends Blog -->
+                
+                <hr>
+                <h5>FRIENDS</h5>
+                <ul class="list-inline">
+
+                    
+                        <li><a href="https://atksoto.com/" target="_blank">Soto-Blog</a></li>
+                    
+                </ul>
+                
+            </div>
+
+        </div>
+    </div>
+</article>
+
+
+
+
+
+
+
+
+
+    <!-- Footer -->
+    <!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                
+                
+                
+
+                
+
+                
+
+                
+                    <li>
+                        <a target="_blank"  href="https://github.com/Charlot316">
+                            <span class="fa-stack fa-lg">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+                
+
+                
+
+                </ul>
+                <p class="copyright text-muted">
+                    Copyright &copy; Charlot&#39;s Blog 2022 
+                    <br>
+                    Theme by <a target="_blank" rel="noopener" href="http://huangxuan.me">Hux</a> 
+                    <span style="display: inline-block; margin: 0 5px;">
+                        <i class="fa fa-heart"></i>
+                    </span> 
+                    Ported by <a target="_blank" rel="noopener" href="http://blog.kaijun.rocks">Kaijun</a> | 
+                    <iframe
+                        style="margin-left: 2px; margin-bottom:-5px;"
+                        frameborder="0" scrolling="0" width="91px" height="20px"
+                        src="https://ghbtns.com/github-btn.html?user=kaijun&repo=hexo-theme-huxblog&type=star&count=true" >
+                    </iframe>
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- jQuery -->
+
+<script src="/js/jquery.min.js"></script>
+
+
+<!-- Bootstrap Core JavaScript -->
+
+<script src="/js/bootstrap.min.js"></script>
+
+
+<!-- Custom Theme JavaScript -->
+
+<script src="/js/hux-blog.min.js"></script>
+
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/    
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async("http://h2pl.github.io/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("https://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+<!-- Google Analytics -->
+
+
+
+
+<!-- Baidu Tongji -->
+
+
+<!-- Side Catalog -->
+
+<script type="text/javascript">
+    function generateCatalog (selector) {
+        var P = $('div.post-container'),a,n,t,l,i,c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#"+$(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="'+i+'" rel="nofollow">'+t+'</a>');
+            l = $('<li class="'+n+'_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;    
+    }
+
+    generateCatalog(".catalog-body");
+
+    // toggle side catalog
+    $(".catalog-toggle").click((function(e){
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    /*
+     * Doc: https://github.com/davist11/jQuery-One-Page-Nav
+     * Fork by Hux to support padding
+     */
+    async("/js/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+<!-- Image to hack wechat -->
+<img src="http://h2pl.github.io/img/icon_wechat.png" width="0" height="0" />
+<!-- Migrate from head to bottom, no longer block render and still work -->
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+
+</html>
