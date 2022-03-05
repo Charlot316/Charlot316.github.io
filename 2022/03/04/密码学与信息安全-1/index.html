@@ -13,11 +13,11 @@
 
     <title>
         
-          软件测试-1 软件测试介绍 - 椎名的博客 | Charlot&#39;s Blog
+          密码学与信息安全-1 - 椎名的博客 | Charlot&#39;s Blog
         
     </title>
 
-    <link rel="canonical" href="http://h2pl.github.io/2022/02/28/软件测试-1 软件测试介绍/">
+    <link rel="canonical" href="http://h2pl.github.io/2022/03/04/密码学与信息安全-1/">
 
     <!-- Bootstrap Core CSS -->
     
@@ -173,14 +173,14 @@
                         
                           <a class="tag" href="/tags/#学习" title="学习">学习</a>
                         
-                          <a class="tag" href="/tags/#软件测试" title="软件测试">软件测试</a>
+                          <a class="tag" href="/tags/#密码学与信息安全" title="密码学与信息安全">密码学与信息安全</a>
                         
                     </div>
-                    <h1>软件测试-1 软件测试介绍</h1>
+                    <h1>密码学与信息安全-1</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         Posted by Charlot on
-                        2022-02-28
+                        2022-03-04
                     </span>
                 </div>
             </div>
@@ -199,66 +199,121 @@
                 col-md-10 col-md-offset-1
                 post-container">
 
-                <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p>P.C. Jorgensen, Software Testing: A Craftsman’s Approach<br>Meyer B. Seven Principles of Software Testing. Computer. 2008; 41:99-101.(SCIQ1)(IEEE)<br>朱少民</p>
-<h1 id="为什么需要软件测试"><a href="#为什么需要软件测试" class="headerlink" title="为什么需要软件测试"></a>为什么需要软件测试</h1><p>可靠软件：</p>
+                <h1 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h1><h2 id="什么是信息安全？"><a href="#什么是信息安全？" class="headerlink" title="什么是信息安全？"></a>什么是信息安全？</h2><h3 id="安全目标："><a href="#安全目标：" class="headerlink" title="安全目标："></a>安全目标：</h3><ul>
+<li>机密性：防止信息泄漏</li>
+<li>完整性：防止信息被改变</li>
+<li>可用性：使授权人能够正常使用信息</li>
+</ul>
+<h3 id="安全威胁-攻击"><a href="#安全威胁-攻击" class="headerlink" title="安全威胁-攻击"></a>安全威胁-攻击</h3><ol>
+<li>对机密性的攻击：窃听，流量分析</li>
+<li>对完整性的攻击：篡改、伪装、重放、否认</li>
+<li>对可用性的攻击：拒绝服务</li>
+</ol>
 <ul>
-<li>careful design</li>
-<li>sound process management</li>
-<li>testing (primary way)</li>
-</ul>
-<h1 id="什么是软件测试"><a href="#什么是软件测试" class="headerlink" title="什么是软件测试"></a>什么是软件测试</h1><p>求真，测试软件无误的过程-&gt;评估属性、能力-&gt;执行程序来找缺陷-&gt;一个破坏性的寻找缺陷的过程（找到可fix的bug，好的测试用例是能够找到新bug的测试用例）-&gt;自动化的方法确保软件满足了需求，确定适配情况（求真求伪）-&gt;提供和产品相关的信息，给定测试条件，尽可能找到多的缺陷。<br>没有测试的概念-&gt;demonstration-oriented 求真-&gt;面向破坏求伪-&gt;面向评估-&gt;面向预防-&gt;面向过程<br>开发测试没有区别 验证正确 验证错误 降低风险 提高整个的质量<br>测试：找到一些数值去测试软件<br>choose finite sets of values-&gt; compare actual results with the expected ones.</p>
-<h1 id="软件测试的经济学"><a href="#软件测试的经济学" class="headerlink" title="软件测试的经济学"></a>软件测试的经济学</h1><p>不可能找出全部错误，穷举也不可能，要有效的测试<br>How to design test cases<br>测试用例标识符 名称 目的 先决条件 输入 预期输出 实际输出 通过/不通过</p>
-<p>e.g. 判断是否是等腰等边不规则三角形不是三角形的用例</p>
-<ol>
-<li>有效的不规则</li>
-<li>有效的等腰</li>
-<li>有效的等边</li>
-<li>对于等腰，分歧出不等的边（3，3，4；3，4，3；4，3，3）</li>
-<li>0值</li>
-<li>负值</li>
-<li>两边之和小于等于第三边</li>
-<li>两边之和等于第三边（三边）</li>
-<li>全0</li>
-<li>非整数</li>
-<li>数目不对<br>……</li>
-</ol>
-<p>组合测试：购买数量和库存（考虑组合的关系）</p>
-<h1 id="软件测试的原理"><a href="#软件测试的原理" class="headerlink" title="软件测试的原理"></a>软件测试的原理</h1><ol>
-<li>测试找bug（求伪是本质）</li>
-<li>穷举不可能（有效测试）</li>
-<li>尽早测试</li>
-<li>缺陷聚类（2-8原则，类不平衡问题（e.g.正负样本数量比不一样，不同的数据集准确率差别很大））</li>
-</ol>
-<ol>
-<li>第三方测试</li>
-<li>无效情况</li>
-<li>测试时软件是静态的</li>
-<li>提供期望值</li>
-<li>不是软件开发过程的一个阶段</li>
-<li>。</li>
-<li>记录尽可能详细</li>
-</ol>
-<h1 id="一些测试相关的术语"><a href="#一些测试相关的术语" class="headerlink" title="一些测试相关的术语"></a>一些测试相关的术语</h1><p>validation（Are we doing the right job） verification（Are we doing the job right，测试过程中的某个phase）<br>bug<br>fault：源代码存在的静态缺陷（bug最原始的形式）root cause<br>error：程序的内部状态，由fault引起的，没测试到fault就引不起这个error internal abnormous conditions<br>failure：外部表现行为（我们说的bug一般是这个）symptoms<br>有fault不一定有failure<br>寻找fault：</p>
-<ol>
-<li>可达，能运行到错误所在的位置</li>
-<li>感染，error出现</li>
-<li>传播，error引发failure</li>
-<li>可监视</li>
-</ol>
-<h1 id="测试中的模型"><a href="#测试中的模型" class="headerlink" title="测试中的模型"></a>测试中的模型</h1><ul>
-<li>基于规格说明书（难以发现未定义的错误）<ul>
-<li>功能测试</li>
-<li>黑盒测试</li>
-</ul>
+<li>被动攻击：内容窃听、流量分析</li>
+<li>主动攻击：伪造（伪装）、中断服务、修改</li>
+<li><p>实际攻击、应用层攻击、网络层攻击</p>
 </li>
-<li>基于代码测试（难以发现规格说明书说明了但还未实现的错误）<ul>
-<li>结构化测试</li>
-<li>白盒测试</li>
-<li>透明测试</li>
+<li><p>安全威胁：</p>
+<ul>
+<li>病毒（virus）</li>
+<li>蠕虫（worm）</li>
+<li>木马（trojan horse）</li>
+<li>小程序（控件）：Java applet， Active X</li>
+<li>Cookise</li>
+<li>脚本：JavaScript，VBscript，Jscr</li>
 </ul>
 </li>
 </ul>
-<h1 id="测试的活动"><a href="#测试的活动" class="headerlink" title="测试的活动"></a>测试的活动</h1><p>设计测试用例-&gt;测试自动化-&gt;测试执行，对比输出-&gt;测试评估</p>
+<h3 id="安全服务"><a href="#安全服务" class="headerlink" title="安全服务"></a>安全服务</h3><ol>
+<li>加密保护机密性：防暴露攻击、防窃听、防流量分析</li>
+<li>保护完整性：防篡改、伪装、重放、否认</li>
+<li>身份认证</li>
+<li>不可否认性</li>
+<li>访问控制：防未经授权的实体访问</li>
+</ol>
+<h3 id="安全机制"><a href="#安全机制" class="headerlink" title="安全机制"></a>安全机制</h3><ol>
+<li>加密</li>
+<li>信息完整性</li>
+<li>数字签名</li>
+<li>身份认证交换</li>
+<li>流量填充</li>
+<li>路由控制</li>
+<li>公正</li>
+<li>访问控制</li>
+</ol>
+<h3 id="安全技术"><a href="#安全技术" class="headerlink" title="安全技术"></a>安全技术</h3><ol>
+<li>密码术</li>
+<li>密写术</li>
+</ol>
+<h2 id="密码学的发展过程"><a href="#密码学的发展过程" class="headerlink" title="密码学的发展过程"></a>密码学的发展过程</h2><ul>
+<li>1949年及之前：一门艺术</li>
+<li>1949～1975：成为科学</li>
+<li>1976年以后：公钥密码学</li>
+</ul>
+<h3 id="第1阶段：古典密码"><a href="#第1阶段：古典密码" class="headerlink" title="第1阶段：古典密码"></a>第1阶段：古典密码</h3><ul>
+<li>密码学还不是科学，是艺术</li>
+<li>出现一些密码算法和加密设备</li>
+<li>密码算法的基本手段出现，针对的是字符</li>
+<li>简单的密码分析手段出现</li>
+<li>主要特点：数据的安全基于算法的保密</li>
+<li>1883年Kerchoffs 编码原则：加密算法应建立在算法的公开不影响明文和密钥的安全</li>
+</ul>
+<h3 id="第2阶段"><a href="#第2阶段" class="headerlink" title="第2阶段"></a>第2阶段</h3><ul>
+<li>计算机和相关技术的发展使得基于复杂计算的密码成为可能</li>
+<li>数据的安全基于密钥而不是算法的保密</li>
+</ul>
+<h3 id="第3阶段："><a href="#第3阶段：" class="headerlink" title="第3阶段："></a>第3阶段：</h3><ul>
+<li>不对称密钥</li>
+<li>RSA公钥算法</li>
+<li>椭圆曲线等公钥算法</li>
+<li>……</li>
+</ul>
+<h2 id="密码学基本概念"><a href="#密码学基本概念" class="headerlink" title="密码学基本概念"></a>密码学基本概念</h2><ul>
+<li>密码学：研究信息系统安全保密的科学</li>
+<li>密码编码学：主要研究对信息进行编码，实现对信息的隐藏</li>
+<li>密码分析学：主要研究加密信息的破译或消息的伪造</li>
+<li>明文(P)：消息的初始形式P=[P1,P2,P3,…Pn]</li>
+<li>密文(C)：加密后的形式C=[C1,C2,C3,…Cn]</li>
+<li>E加密算法，D解密算法，K密钥</li>
+<li>P=D(E(P)) C=E(P) P=D(C)</li>
+<li>需要密钥的加密的算法：C=E(K,P)，密文消息同时依赖于初始明文和密钥的值。E是一组加密算法，密钥用于选择其中特定的一个算法。</li>
+<li>加密与解密的密钥相同：P=D(K,E(K,P))</li>
+<li>加密与解密的密钥不同：P=D(KD,E(KE,P))</li>
+</ul>
+<h3 id="密钥体系形式化描述"><a href="#密钥体系形式化描述" class="headerlink" title="密钥体系形式化描述"></a>密钥体系形式化描述</h3><p>五元组(P,C,K,E,D)</p>
+<ul>
+<li>P是可能明文的有限集（明文空间）</li>
+<li>C是可能密文的有限集（密文空间）</li>
+<li>K一切可能密钥构成的有限集（密钥空间）</li>
+<li>对任意k属于K，有一个加密算法(p-&gt;c)和一个相应的解密算法(c-&gt;p)</li>
+</ul>
+<h3 id="密码分析"><a href="#密码分析" class="headerlink" title="密码分析"></a>密码分析</h3><p>密码分析（破译）是在不知道密钥的情况下恢复出明文的科学，任务：</p>
+<ul>
+<li>试图破译单条消息</li>
+<li>试图识别加密的消息格式，以便借助直接的解密算法破译后续的全部消息</li>
+<li>试图找到加密算法中的普遍缺陷（无需截取任何消息）</li>
+</ul>
+<p>具体分析手段：</p>
+<ul>
+<li>唯密文分析</li>
+<li>已知明文分析</li>
+<li>选择明文攻击</li>
+<li>自适应选择明文攻击</li>
+<li>选择密文攻击</li>
+<li>选择文本攻击</li>
+<li>选择密钥攻击</li>
+</ul>
+<h3 id="攻击方法"><a href="#攻击方法" class="headerlink" title="攻击方法"></a>攻击方法</h3><ul>
+<li>蛮力攻击</li>
+<li>穷举攻击</li>
+<li>统计攻击</li>
+<li>模式攻击</li>
+<li>软磨硬泡攻击（严刑拷打折磨某人直到他给出密钥）</li>
+</ul>
+<h3 id="理论安全与实际安全"><a href="#理论安全与实际安全" class="headerlink" title="理论安全与实际安全"></a>理论安全与实际安全</h3><p>假设加密算法是公开的，预防攻击主要依赖密钥。如果密钥足够安全，加密算法则无必要隐藏。密钥域要足够大，才能使密钥足够安全。<br>理论安全：当破译者有无限制的时间和无限制的计算能力时，一个密码系统的安全性。<br>实际安全：当破译者在有限的时间和有限的计算能力时，一个密码系统的安全性。</p>
+<h3 id="加密方案的安全性："><a href="#加密方案的安全性：" class="headerlink" title="加密方案的安全性："></a>加密方案的安全性：</h3><p>无条件安全：无论提供的密文有多少，由一个加密方案产生的密文中包含的信息不足以唯一决定对应的明文。<br>除了一次一密的方案外，没有无条件安全的方法<br>破译成本超过加密信息的价值<br>破译时间超过该信息有用的生命周期</p>
+<p>数据复杂性、处理复杂性、存储需求</p>
 
 
                 <hr>
@@ -267,13 +322,9 @@
 
                 <ul class="pager">
                     
-                        <li class="previous">
-                            <a href="/2022/03/01/软件过程与质量-1/" data-toggle="tooltip" data-placement="top" title="软件过程与质量-1">&larr; Previous Post</a>
-                        </li>
-                    
                     
                         <li class="next">
-                            <a href="/2022/02/28/Technical Writing-1/" data-toggle="tooltip" data-placement="top" title="Technical Writing-1">Next Post &rarr;</a>
+                            <a href="/2022/03/03/J2EE架构-1/" data-toggle="tooltip" data-placement="top" title="J2EE架构-1">Next Post &rarr;</a>
                         </li>
                     
                 </ul>
@@ -316,7 +367,7 @@
                        
                           <a class="tag" href="/tags/#学习" title="学习">学习</a>
                         
-                          <a class="tag" href="/tags/#软件测试" title="软件测试">软件测试</a>
+                          <a class="tag" href="/tags/#密码学与信息安全" title="密码学与信息安全">密码学与信息安全</a>
                         
                     </div>
                 </section>

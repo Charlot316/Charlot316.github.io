@@ -209,11 +209,8 @@
 <li><strong>integrity</strong>—Optional. Allows for verification of Subresource Integrity (SRI) by checking the retrieved resource against a provided cryptographic signature. If the signature of the retrieved resource does not match that specified by this attribute, the page will error and the script will not execute. This is useful for ensuring that a Content Delivery Network (CDN) is not serving malicious payloads.</li>
 <li><strong>language</strong>—Deprecated. Originally indicated the scripting language being used by the code block (such as “JavaScript”, “JavaScript1.2”, or “VBScript”). Most browsers ignore this attribute; it should not be used.</li>
 <li><strong>src</strong>—Optional. Indicates an external file that contains code to be executed.</li>
-<li><strong>type</strong>—Optional. Replaces language; indicates the content type (also called MIME type) of the scripting language being used by the code block. Traditionally, this value has always been “text/javascript”, though both “text/javascript” and “text/ecmascript” are deprecated. JavaScript files are typically served with the “application/x-javascript” MIME type even though setting this in the type attribute may cause the script to be</li>
+<li><strong>type</strong>—Optional. Replaces language; indicates the content type (also called MIME type) of the scripting language being used by the code block. Traditionally, this value has always been “text/javascript”, though both “text/javascript” and “text/ecmascript” are deprecated. JavaScript files are typically served with the “application/x-javascript” MIME type even though setting this in the type attribute may cause the script to be ignored. Other values that work in non–Internet Explorer browsers are “application/ javascript” and “application/ecmascript”. If the value is module, the code is treated as an ES6 module and only then is eligible to use the import and export keywords.</li>
 </ul>
-<p>ignored. Other values that work in non–Internet Explorer browsers are “application/</p>
-<p>javascript” and “application/ecmascript”. If the value is module, the code is treated as</p>
-<p>an ES6 module and only then is eligible to use the import and export keywords.</p>
 
 
                 <hr>
